@@ -6,8 +6,12 @@ const productSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    price:{
-        type: Array,
+    fullprice:{
+        type: Number,
+        required:true
+    },
+    halfprice:{
+        type: Number,
         required:true
     },
     image:{

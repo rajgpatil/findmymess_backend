@@ -4,7 +4,7 @@ import productModel from "../models/productModel.js"
 //function for add product
 const addProduct = async(req,res)=>{
     try{
-        const{name,description,price,category,sizes,bestseller} = req.body
+        const{name,description,fullprice,halfprice,category,sizes,bestseller} = req.body
 
         const image1 = req.files.image1 && req.files.image1[0]
         const image2 = req.files.image2 && req.files.image2[0]
@@ -20,9 +20,9 @@ const addProduct = async(req,res)=>{
                 return result.secure_url
             })
         )
-        console.log(name,description,price,category,sizes,bestseller)
-        console.log(req.files)
-        console.log(images)
+        // console.log(name,description,fullprice,halfprice,category,sizes,bestseller)
+        // console.log(req.files)
+        // console.log(images)
 
         // console.log(imagesUrl)
 
@@ -30,7 +30,8 @@ const addProduct = async(req,res)=>{
             name,
             description,
             category,
-            price: JSON.parse(price), //conver price from string to array
+            fullprice: JSON.parse(fullprice), //conver price from string to array
+            halfprice: JSON.parse(halfprice),
             bestseller: bestseller === 'true' ? true : false, //conver bestseller from string to boolean
             sizes:JSON.parse(sizes), //convert the string into array
             image:imagesUrl,

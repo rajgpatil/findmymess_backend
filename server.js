@@ -5,6 +5,8 @@ import connectDB from "./config/mongodb.js"
 import connectCloudinary from './config/cloudinary.js'
 import userRouter from './routes/userRoute.js'
 import productRouter from './routes/productRoute.js'
+import cartRouter from './routes/cartRoute.js'
+import orderRouter from "./routes/orderRoute.js"
 
 //App Config
 
@@ -27,6 +29,11 @@ app.use(cors())
 app.use('/api/user',userRouter)
 // product router
 app.use('/api/product',productRouter)
+//cart router
+app.use('/api/cart',cartRouter)
+//order router
+app.use('/api/order',orderRouter)
+
 app.get('/',(req,res)=>{
     res.send('API is Working')
 })
